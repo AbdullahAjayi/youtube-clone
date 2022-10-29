@@ -6,10 +6,18 @@ import { Sidebar, Videos } from "./";
 
 const Feed = () => {
   const [selectedCategory, setSelectedCategory] = useState("New");
+  const [videos, setVideos] = useState([]);
+
+  async function getData() {
+    const result = await fetchFromAPI(`search?part=snippet&q=${selectedCategory}`);
+    const data = await result.data;
+    setVideos(data.items);
+  }
 
   useEffect(() => {
-    fetchFromAPI(`search?part=snippet&q=${selectedCategory}`);
-  }, []);
+    getData();
+  }, [selectedCategory]);
+
   return (
     <Stack
       sx={{
@@ -60,7 +68,7 @@ const Feed = () => {
             videos
           </span>
         </Typography>
-        <Videos videos={[]} />
+        <Videos videos={videos} />
       </Box>
     </Stack>
   );
