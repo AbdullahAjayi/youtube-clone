@@ -1,8 +1,15 @@
 import { useState, useEffect } from "react";
 import { Box, Stack, Typography } from "@mui/material";
-import Sidebar from "./Sidebar";
+
+import { fetchFromAPI } from "../utils/fetchFromAPI";
+import { Sidebar, Videos } from "./";
 
 const Feed = () => {
+  const [selectedCategory, setSelectedCategory] = useState("New");
+
+  useEffect(() => {
+    fetchFromAPI(`search?part=snippet&q=${selectedCategory}`);
+  }, []);
   return (
     <Stack
       sx={{
@@ -16,7 +23,7 @@ const Feed = () => {
           px: { xs: 0, md: 2 },
         }}
       >
-        <Sidebar />
+        <Sidebar selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} />
         <Typography
           className="copy-right"
           variant="body2"
@@ -27,6 +34,33 @@ const Feed = () => {
         >
           Copyright 2022 Abdullah Ajayi
         </Typography>
+      </Box>
+      <Box
+        p={2}
+        sx={{
+          overflowY: "auto",
+          height: "92vh",
+          flex: 2,
+        }}
+      >
+        <Typography
+          variant="h4"
+          fontWeight="bold"
+          mb={2}
+          sx={{
+            color: "white",
+          }}
+        >
+          {selectedCategory}{" "}
+          <span
+            style={{
+              color: "#FC1503",
+            }}
+          >
+            videos
+          </span>
+        </Typography>
+        <Videos videos={[]} />
       </Box>
     </Stack>
   );
