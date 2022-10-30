@@ -11,7 +11,6 @@ const Feed = () => {
   async function getData() {
     const result = await fetchFromAPI(`search?part=snippet&q=${selectedCategory}`);
     const data = await result.data;
-    console.log(data.items);
     setVideos(data.items);
   }
 
