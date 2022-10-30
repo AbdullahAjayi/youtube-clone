@@ -12,7 +12,7 @@ const Feed = () => {
     const result = await fetchFromAPI(`search?part=snippet&q=${selectedCategory}`);
     const data = await result.data;
     setVideos(data.items);
-    console.log(data.items);
+    // console.log(data.items);
   }
 
   useEffect(() => {

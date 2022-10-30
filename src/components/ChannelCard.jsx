@@ -8,6 +8,12 @@ const ChannelCard = ({ channelDetail }) => (
   <Box
     sx={{
       boxShadow: "none",
+      width: { xs: "356px", md: "320px" },
+      height: "326px",
+      margin: "auto",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
       borderRadius: "20px",
     }}
   >
