@@ -70,7 +70,7 @@ const Feed = () => {
           </span>
         </Typography>
         <div style={{ display: "flex" }}>
-          <Box sx={{ mr: { sm: "100px" } }} />
+          <Box sx={{ mr: { sm: "100px", md: "0" } }} />
           <Videos videos={videos} />
         </div>
       </Box>
