@@ -69,7 +69,10 @@ const Feed = () => {
             videos
           </span>
         </Typography>
-        <Videos videos={videos} />
+        <div style={{ display: "flex" }}>
+          <Box sx={{ mr: { sm: "100px" } }} />
+          <Videos videos={videos} />
+        </div>
       </Box>
     </Stack>
   );
