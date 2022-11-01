@@ -15,7 +15,7 @@ import StarBorderOutlined from "@mui/icons-material/StarBorderOutlined";
 import BookIcon from "@mui/icons-material/Book";
 import TravelExploreIcon from "@mui/icons-material/TravelExplore";
 
-export const logo = "https://i.ibb.co/s9Qys2j/logo.png";
+// export const logo = "https://i.ibb.co/s9Qys2j/logo.png";
 
 export const categories = [
   { name: "World News", icon: <TravelExploreIcon /> },
